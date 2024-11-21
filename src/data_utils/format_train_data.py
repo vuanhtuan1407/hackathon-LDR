@@ -5,7 +5,7 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-MAX_NEG_SAMPLES = 1 # memory not allowed
+MAX_NEG_SAMPLES = 1  # memory not allowed
 NEG_POS = 42  # random number to get neg samples: pos = i => neg = [i-42, i-43, ..., i-42-MAX_NEG_SAMPLES]
 
 

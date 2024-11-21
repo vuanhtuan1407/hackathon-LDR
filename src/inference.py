@@ -10,7 +10,7 @@ TEST_PATH = '../data/raw_data/public_test.csv'
 INDEX_PATH = '../data/tmp_data/corpus_index.bin'
 RESULT_PATH = '../data/tmp_data/result.txt'
 
-NUM_TEST = 100
+NUM_TEST = 1000
 
 model = BGEM3(
     model_name_or_path='BAAI/bge-m3',
@@ -38,8 +38,8 @@ def emb_corpus():
 def infer():
     cid, index = emb_corpus()
     df = pd.read_csv(TEST_PATH)
-    queries = df['question'].tolist()[:1000]
-    qid = df['qid'].tolist()[:1000]
+    queries = df['question'].tolist()[:3]
+    qid = df['qid'].tolist()[:3]
     q_embeddings = model.encode(queries, convert_to_numpy=True)['dense_vecs']
     _, I = index.search(q_embeddings, 10)
     res = []
